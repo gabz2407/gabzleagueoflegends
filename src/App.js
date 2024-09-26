@@ -1,4 +1,5 @@
 import "./App.css";
+import Data from "./Data";
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <header>
         <h1>League of Legends</h1>
       </header>
+      <Data />
     </div>
   );
 }
