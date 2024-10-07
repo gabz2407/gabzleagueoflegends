@@ -1,23 +1,33 @@
 import axios from "axios";
 import React, { useState } from "react";
+import Champion from "./Champion";
 
 export default function Data() {
   const [champion, setChampion] = useState(""); // State to hold the search term
+  const [championData, setChampionData] = useState(null); // State to hold the champion data
 
   function getResponse(response) {
     const data = response.data;
-    console.log(data);
 
-    let name = data.champion;
-    let title = data.title;
-    let abilities = data.abilities;
-    let ally_tips = data.ally_tips;
-    let enemy_tips = data.enemy_tips;
-    let passive = data.passive;
-    let story = data.story;
-    let lore = data.lore;
-    let skins = data.skins;
-    let role = data.role;
+    let abilities = [];
+    for (let i in data.abilities) {
+      abilities.push(data.abilities[i]); // Push each ability into the abilities array
+    }
+
+    let champion_data = {
+      name: data.champion,
+      title: data.title,
+      abilities: abilities,
+      ally_tips: data.ally_tips,
+      enemy_tips: data.enemy_tips,
+      passive: data.passive,
+      story: data.story,
+      lore: data.lore,
+      skins: data.skins,
+      role: data.role,
+    };
+
+    setChampionData(champion_data);
   }
 
   function searchChampion(event) {
@@ -43,7 +53,8 @@ export default function Data() {
           <span role="img">🔍</span>
         </button>
       </form>
-      <h1>{champion}</h1>
+      {championData && <Champion champion={championData} />}
+      {/* render the Champion component only if data is available */}
     </div>
   );
 }
