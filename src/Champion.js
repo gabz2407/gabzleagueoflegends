@@ -11,6 +11,7 @@ export default function Champion(props) {
   let passive = champion.passive;
   let ally_tips = champion.ally_tips;
   let enemy_tips = champion.enemy_tips;
+  let skins = champion.skins;
 
   return (
     <div className="Champion">
@@ -52,6 +53,16 @@ export default function Champion(props) {
 
       <h3>Role</h3>
       <p>{champion.role}</p>
+
+      <h3>Skins</h3>
+      <ul>
+        {skins.map((skin, index) => (
+          <li key={index}>
+            <h3>{skin.name}</h3>
+            <img src={skin.image} alt={skin.name} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
