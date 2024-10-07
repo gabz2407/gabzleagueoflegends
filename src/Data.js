@@ -22,7 +22,6 @@ export default function Data() {
       enemy_tips: data.enemy_tips,
       passive: data.passive,
       story: data.story,
-      lore: data.lore,
       skins: data.skins,
       role: data.role,
     };

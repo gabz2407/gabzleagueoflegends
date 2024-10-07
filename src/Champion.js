@@ -46,6 +46,12 @@ export default function Champion(props) {
       {enemy_tips.map((tips, index) => (
         <li key={index}>{tips}</li>
       ))}
+
+      <h3>Story</h3>
+      <p>{champion.story}</p>
+
+      <h3>Role</h3>
+      <p>{champion.role}</p>
     </div>
   );
 }
