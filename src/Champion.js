@@ -9,6 +9,8 @@ export default function Champion(props) {
 
   let abilities = champion.abilities;
   let passive = champion.passive;
+  let ally_tips = champion.ally_tips;
+  let enemy_tips = champion.enemy_tips;
 
   return (
     <div className="Champion">
@@ -24,7 +26,6 @@ export default function Champion(props) {
           </li>
         ))}
       </ul>
-
       <h3>Abilities</h3>
       <ul>
         {abilities.map((ability, index) => (
@@ -35,6 +36,16 @@ export default function Champion(props) {
           </li>
         ))}
       </ul>
+
+      <h3>Ally Tips:</h3>
+      {ally_tips.map((tips, index) => (
+        <li key={index}>{tips}</li>
+      ))}
+
+      <h3>Enemy Tips:</h3>
+      {enemy_tips.map((tips, index) => (
+        <li key={index}>{tips}</li>
+      ))}
     </div>
   );
 }
