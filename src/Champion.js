@@ -8,12 +8,24 @@ export default function Champion(props) {
   } // prevents the component from rendering if champion or champion.abilities is undefined,
 
   let abilities = champion.abilities;
-  console.log(abilities);
+  let passive = champion.passive;
+
   return (
     <div className="Champion">
       <h1>{champion.name}</h1>
       <h2>{champion.title}</h2>
-      {/* <h3>{champion.abilities[0]}</h3> */}
+      <h3>Passive</h3>
+      <ul>
+        {passive.map((passive, index) => (
+          <li key={index}>
+            <h3>{passive.name}</h3>
+            <p>{passive.description}</p>
+            <img src={passive.image} alt={passive.name} />
+          </li>
+        ))}
+      </ul>
+
+      <h3>Abilities</h3>
       <ul>
         {abilities.map((ability, index) => (
           <li key={index}>

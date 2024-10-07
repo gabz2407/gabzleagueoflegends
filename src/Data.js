@@ -26,7 +26,7 @@ export default function Data() {
       skins: data.skins,
       role: data.role,
     };
-
+    console.log(champion_data);
     setChampionData(champion_data);
   }
 
